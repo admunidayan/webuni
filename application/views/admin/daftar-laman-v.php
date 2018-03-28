@@ -1,5 +1,11 @@
 <div style="margin-top: 14px; background-color: white;padding: 30px">
-	<h5 class="text-info">Daftar Laman</h5><hr/>
+	<div class="media">
+		<div class="media-left">
+			<h5 class="text-info">Laman</h5><hr/>
+		</div>
+		<div class="media-body"></div>
+		<div class="media-right"><button class="btn btn-outline-success" data-toggle="modal" data-target="#add"><i class="fa fa-plus-circle"></i> Tambah Laman</button></div>
+	</div>
 	<?php if ($this->session->flashdata('message')): ?>
 		<div class="alert alert-success alert-dismissible" role="alert" style="margin-top:65px;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -13,13 +19,12 @@
 	<table class="table" style="vertical-align: middle">
 		<thead>
 			<tr>
-				<th class="text-center ">No</th>
-				<th class="">Nama Laman</th>
-				<th class="">Alias</th>
-				<th class="">Deskripsi</th>
-				<th class="">User</th>
-				<th class="">Status</th>
-				<th colspan="2" class="text-center ">Action</th>
+				<td class="text-center ">No</td>
+				<td class="">Nama Laman</td>
+				<td class="">Deskripsi</td>
+				<td class="">User</td>
+				<td class="">Status</td>
+				<td colspan="2" class="text-center ">Action</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -29,13 +34,12 @@
 					<tr>
 						<td class="text-center"><?php echo $no; ?></td>
 						<td><?php echo $data->judul_laman; ?></td>
-						<td><?php echo $data->alias_laman; ?></td>
-						<td>
+						<td class="text-secondary">
 							<?php $string =$data->deskripsi_laman; $string = character_limiter($string, 50) ; ?>
 							<?php echo $string; ?>
 
 						</td>
-						<td><?php echo $this->ion_auth->user($data->id_user)->row()->username; ?></td>
+						<td class="text-secondary"><?php echo $this->ion_auth->user($data->id_user)->row()->username; ?></td>
 						<td class="text-center">
 							<?php if ($data->status_laman=='publish'): ?>
 								<i class="fa fa-globe"></i>
@@ -44,14 +48,10 @@
 							<?php endif ?>
 						</td>
 						<td class="text-center">
-							<a href="<?php echo base_url('index.php/admin/laman/edit/'.$data->alias_laman); ?>">
-								<label class="btn label label-success">edit</label>
-							</a>
+							<a href="<?php echo base_url('index.php/admin/laman/edit/'.$data->alias_laman); ?>">edit</a>
 						</td>
 						<td class="text-center">
-							<a href="<?php echo base_url('index.php/admin/laman/delete/'.$data->alias_laman); ?>">
-								<label class="btn label label-danger">delete</label>
-							</a>
+							<a href="<?php echo base_url('index.php/admin/laman/delete/'.$data->alias_laman); ?>">delete</a>
 						</td>
 					</tr>
 					<?php $no++ ?>
