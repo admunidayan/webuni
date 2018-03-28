@@ -1,0 +1,85 @@
+body{
+	background-color: #eeeeee;
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: middle;
+    border-top: 1px solid #e9ecef;
+}
+.login-box{
+	max-width: 500px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: white;
+	padding: 14px 28px;
+	margin-top: 100px;
+	border-radius: 4px;
+}
+.bts-ats{
+	margin-top: 14px;
+}
+.bts-bwh{
+	padding-bottom: 14px;
+}
+.bts-bwh2{
+	margin-bottom: 14px;
+}
+.nbbrand{
+	padding: 11px;
+	color: white;
+}
+.nbbg{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0095d6+0,00b29d+100 */
+	background: #0095d6; /* Old browsers */
+	background: -moz-linear-gradient(left, #0095d6 0%, #00b29d 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #0095d6 0%,#00b29d 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #0095d6 0%,#00b29d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0095d6', endColorstr='#00b29d',GradientType=1 ); /* IE6-9 */
+}
+.navstyle{
+	padding: 14px;
+}
+.netralink{
+	color: #8e8e8e;
+}
+.menulink{
+	padding: 0 10px 0 0;
+    border-radius: 3px;
+    font-size: 13px;
+    border: transparent solid 1px;
+    line-height: 35px;
+    height: 36px;
+}
+.iconmenu{
+	
+    line-height: 35px;
+    display: block;
+    float: left;
+    width: 30px;
+    height: 36px;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-align: center;
+}
+.menulink:hover{
+	border :1px solid #eeeeee;
+}
+.linkmenu{
+	padding: 10px 10px;
+}
+.linkmenu:hover{
+	background-color: white;
+	cursor: pointer;
+}
+.main-box{
+	padding: 14px;
+}
+.mybgcolor{
+	border: 1px solid #cccccc;
+}
+.pembatas{
+	border-top: 1px solid #cccccc;
+}
+.kirikanan{
+	padding: 1px 3px;
+}
