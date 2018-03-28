@@ -4,7 +4,7 @@
 			<h5 class="text-info">Laman</h5><hr/>
 		</div>
 		<div class="media-body"></div>
-		<div class="media-right"><button class="btn btn-outline-success" data-toggle="modal" data-target="#add"><i class="fa fa-plus-circle"></i> Tambah Laman</button></div>
+		<div class="media-right"><a href="<?php echo base_url('index.php/admin/laman/create') ?>" class="btn btn-outline-success"><i class="fa fa-plus-circle"></i> Tambah Laman</a></div>
 	</div>
 	<?php if ($this->session->flashdata('message')): ?>
 		<div class="alert alert-success alert-dismissible" role="alert" style="margin-top:65px;">
