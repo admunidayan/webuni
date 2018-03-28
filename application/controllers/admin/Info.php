@@ -120,7 +120,7 @@ class Info extends CI_Controller {
         $this->session->set_flashdata('message', $pesan );
         redirect(base_url('index.php/admin/dashboard'));
       }else{
-        $data['title'] = 'Edit - '.$this->Admin_m->detailinfo($id)->judul_info_kampus;
+        $data['title'] = 'Edit - '.$this->Admin_m->detail_data_order('info_kampus','id_info_kampus',$id)->judul_info_kampus;
         $data['infopt'] = $this->Admin_m->info_pt(1);
         $data['brand'] = 'asset/img/lembaga/'.$this->Admin_m->info_pt(1)->logo_pt;
         $data['users'] = $this->ion_auth->user()->row();
