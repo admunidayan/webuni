@@ -39,12 +39,12 @@ class Kategori extends CI_Controller {
 			}else{
 				$post=$this->input->post();
 				$data = array(
-					'nama_kategori' =>$post['nama_kategori'],
-					'kode_kategori' =>$post['kode_kategori'],
-					'ket_kategori' =>$post['ket_kategori'],
+					'judul_kategori' =>$post['judul_kategori'],
+					'alias_kategori' =>$post['alias_kategori'],
+					'isi_kategori' =>$post['isi_kategori'],
 				);
 				$this->Admin_m->create('kategori',$data);
-				$pesan = 'Menu '.$post['nama_kategori'].' Berhasil ditambahkan';
+				$pesan = 'Menu '.$post['judul_kategori'].' Berhasil ditambahkan';
 				$this->session->set_flashdata('message', $pesan );
 				redirect(base_url('index.php/admin/kategori'));
 			}
@@ -88,13 +88,13 @@ class Kategori extends CI_Controller {
                 redirect(base_url('index.php/admin/dashboard'));
             }else{
                 $post=$this->input->post();
-                $data = array(
-                    'nama_kategori' =>$post['nama_kategori'],
-                    'kode_kategori' =>$post['kode_kategori'],
-                    'ket_kategori' =>$post['ket_kategori'],
-                );
+               $data = array(
+					'judul_kategori' =>$post['judul_kategori'],
+					'alias_kategori' =>$post['alias_kategori'],
+					'isi_kategori' =>$post['isi_kategori'],
+				);
                 $this->Admin_m->update('kategori','id_kategori',$id,$data);
-                $pesan = 'Kategori '.$post['nama_kategori'].' Berhasil di ubah';
+                $pesan = 'Kategori '.$post['judul_kategori'].' Berhasil di ubah';
                 $this->session->set_flashdata('message', $pesan );
                 redirect(base_url('index.php/admin/kategori/edit/'.$id));
             }

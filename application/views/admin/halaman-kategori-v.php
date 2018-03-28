@@ -17,8 +17,8 @@
 		<?php foreach ($hasil as $data): ?>
 			<tr>
 				<td class="text-center"><?php echo $no; ?></td>
-				<td><?php echo $data->nama_kategori; ?></td>
-				<td><?php echo $data->kode_kategori; ?></td>
+				<td><?php echo $data->judul_kategori; ?></td>
+				<td><?php echo $data->alias_kategori; ?></td>
 				<td class="text-center"><a class="text-info" href="<?php echo base_url('index.php/admin/kategori/edit/'.$data->id_kategori) ?>"><i class="fa fa-pencil"></i> edit</a></td>
 				<td class="text-center"><a class="text-danger" href="<?php echo base_url('index.php/admin/kategori/delete/'.$data->id_kategori) ?>"><i class="fa fa-trash"></i> hapus</a></td>
 			</tr>

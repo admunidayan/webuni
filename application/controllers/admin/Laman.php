@@ -5,7 +5,6 @@ class Laman extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('admin/Admin_m');
-		$this->load->model('admin/Laman_m');
 	}
 	public function index($offset=0){
 		if ($this->ion_auth->logged_in()) {
@@ -18,44 +17,40 @@ class Laman extends CI_Controller {
 				$post = $this->input->get();
 				$data['title'] = 'Daftar Laman - '.$this->Admin_m->info_pt(1)->nama_info_pt;
 				$data['infopt'] = $this->Admin_m->info_pt(1);
+				$data['brand'] = 'asset/img/lembaga/'.$this->Admin_m->info_pt(1)->logo_pt;
 				$data['users'] = $this->ion_auth->user()->row();
-				if ($this->ion_auth->in_group('admin')) {
-					$data['aside'] = 'nav/nav-admin';
-				}else{
-					$data['aside'] = 'nav/nav-members';
-				}
+				$data['aside'] = 'nav/nav';
 				$data['page'] = 'admin/daftar-laman-v';
-				// pagging setting
-                $data['contoh'] =$this->Laman_m->jumlah(@$post['string']);
-                $jumlah = $this->Laman_m->jumlah(@$post['string']);
-                $config['base_url'] = base_url().'index.php/admin/laman/index';
-                $config['total_rows'] = $jumlah;
-                $config['per_page'] = '10';
-                $config['first_page'] = 'Awal';
-                $config['last_page'] = 'Akhir';
-                $config['next_page'] = '&laquo;';
-                $config['prev_page'] = '&raquo;';
-                // bootstap style
-                $config['full_tag_open'] = "<ul class='pagination pagination-sm' style='position:relative;'>";
-                $config['full_tag_close'] ="</ul>";
-                $config['num_tag_open'] = '<li>';
-                $config['num_tag_close'] = '</li>';
-                $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-                $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-                $config['next_tag_open'] = "<li>";
-                $config['next_tagl_close'] = "</li>";
-                $config['prev_tag_open'] = "<li>";
-                $config['prev_tagl_close'] = "</li>";
-                $config['first_tag_open'] = "<li>";
-                $config['first_tagl_close'] = "</li>";
-                $config['last_tag_open'] = "<li>";
-                $config['last_tagl_close'] = "</li>";
-                //inisialisasi config
-                $this->pagination->initialize($config);
-                // pengaturan searching
-                $data['nomor'] = $offset;
-                $data['hasil'] = $this->Laman_m->searcing_data($config['per_page'],$offset,@$post['string']);
-                $data['pagging'] = $this->pagination->create_links();
+                // pagging setting
+        		$config['base_url'] = base_url('index.php/admin/laman/index');
+        		$config['total_rows'] = $this->Admin_m->count_data_laman(@$post['string']); //total row
+        		$config['per_page'] = 10;  //show record per halaman
+        		$config["uri_segment"] = 4;  // uri parameter
+        		// style pagging
+        		$config['first_link']       = 'Pertama';
+        		$config['last_link']        = 'Terakhir';
+        		$config['next_link']        = 'Selanjutnya';
+        		$config['prev_link']        = 'Sebelumnya';
+        		$config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        		$config['full_tag_close']   = '</ul></nav></div>';
+        		$config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        		$config['num_tag_close']    = '</span></li>';
+        		$config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        		$config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        		$config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        		$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        		$config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        		$config['prev_tagl_close']  = '</span>Next</li>';
+        		$config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        		$config['first_tagl_close'] = '</span></li>';
+        		$config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        		$config['last_tagl_close']  = '</span></li>';
+        		$this->pagination->initialize($config);
+        		$data['offset'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+        		// pengaturan searching
+        		$data['nomor'] = $data['offset'];
+        		$data['hasil'] = $this->Admin_m->select_all_data_laman($config['per_page'],$offset,@$post['string']);
+        		$data['pagination'] = $this->pagination->create_links();
 				$this->load->view('admin/dashboard-v',$data);
 			}
 		}else{
@@ -76,11 +71,7 @@ class Laman extends CI_Controller {
 				$data['title'] = 'Tambah Laman - '.$this->Admin_m->info_pt(1)->nama_info_pt;
 				$data['infopt'] = $this->Admin_m->info_pt(1);
 				$data['users'] = $this->ion_auth->user()->row();
-				if ($this->ion_auth->in_group('admin')) {
-					$data['aside'] = 'nav/nav-admin';
-				}else{
-					$data['aside'] = 'nav/nav-members';
-				}
+				$data['aside'] = 'nav/nav';
 				$data['page'] = 'admin/tambah-laman-v';
 				$data['alllaman'] = $this->Laman_m->all_laman();
 				$this->load->view('admin/dashboard-v',$data);
@@ -150,11 +141,7 @@ class Laman extends CI_Controller {
 				$data['title'] = 'Edit - '.$this->Laman_m->detail_laman($alias)->judul_laman;
 				$data['infopt'] = $this->Admin_m->info_pt(1);
 				$data['users'] = $this->ion_auth->user()->row();
-				if ($this->ion_auth->in_group('admin')) {
-					$data['aside'] = 'nav/nav-admin';
-				}else{
-					$data['aside'] = 'nav/nav-members';
-				}
+				$data['aside'] = 'nav/nav';
 				$data['detail'] = $this->Laman_m->detail_laman($alias);
 				$data['alllaman'] = $this->Laman_m->all_laman();
 				$data['page'] = 'admin/edit-laman-v';
