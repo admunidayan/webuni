@@ -6,6 +6,18 @@
 		<div class="media-body"></div>
 		<div class="media-right"><a href="<?php echo base_url('index.php/admin/artikel/create/') ?>" class="btn btn-outline-success"><i class="fa fa-plus-circle"></i> Tambah Artikel</a></div>
 	</div>
+	<?php if ($this->session->flashdata('message')): ?>
+		<div class="alert alert-success alert-dismissible" role="alert" style="margin-top:65px;">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<i class="fa fa-check-circle"></i> <strong><?php echo $this->session->flashdata('message');?></strong>
+		</div>
+	<?php endif ?>
+	<?php if ($this->session->flashdata('errors')): ?>
+		<div class="alert alert-success alert-dismissible" role="alert" style="margin-top:65px;">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<i class="fa fa-check-circle"></i> <strong><?php echo $this->session->flashdata('errors');?></strong>
+		</div>
+	<?php endif ?>
 	<form action="<?php echo base_url('index.php/admin/artikel/index') ?>" method="get">
 		<input type="text" name="string" class="form-control" placeholder="Cari Artikel" style="width: 100%">
 		<small id="nama_kategori" class="form-text text-muted">Tekan enter untuk melakukan pencarian</small>
