@@ -6,7 +6,7 @@
 		<div class="media-body"></div>
 		<div class="media-right"><a href="<?php echo base_url('index.php/admin/dokumen/create/') ?>" class="btn btn-outline-success"><i class="fa fa-plus-circle"></i> Tambah dokumen baru</a></div>
 	</div>
-	<form action="<?php echo base_url('index.php/admin/artikel/index') ?>" method="get">
+	<form action="<?php echo base_url('index.php/admin/dokumen/index') ?>" method="get">
 		<input type="text" name="string" class="form-control" placeholder="Cari Dokumen" style="width: 100%">
 		<small class="form-text text-muted">Tekan enter untuk melakukan pencarian</small>
 	</form>

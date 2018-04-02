@@ -199,6 +199,20 @@ class Admin_m extends CI_Model
 		$query = $this->db->get('laman',$sampai,$dari);
 		return $query->result();
 	}
+	function count_data_galeri($string){
+		if (!empty($string)) {
+			$this->db->like('nama_galeri',$string);
+		}
+		return $this->db->get('galeri')->num_rows();
+	}
+	public function select_all_data_galeri($sampai,$dari,$string){
+		if (!empty($string)) {
+			$this->db->like('nama_galeri',$string);
+		}
+		$this->db->order_by('id_galeri','desc');
+		$query = $this->db->get('galeri',$sampai,$dari);
+		return $query->result();
+	}
 	function count_data_dokumen($string){
 		if (!empty($string)) {
 			$this->db->like('nama_dokumen',$string);

@@ -69,11 +69,12 @@ class Laman extends CI_Controller {
 			}else{
 				$post = $this->input->post();
 				$data['title'] = 'Tambah Laman - '.$this->Admin_m->info_pt(1)->nama_info_pt;
+				$data['brand'] = 'asset/img/lembaga/'.$this->Admin_m->info_pt(1)->logo_pt;
 				$data['infopt'] = $this->Admin_m->info_pt(1);
 				$data['users'] = $this->ion_auth->user()->row();
 				$data['aside'] = 'nav/nav';
 				$data['page'] = 'admin/tambah-laman-v';
-				$data['alllaman'] = $this->Laman_m->all_laman();
+				$data['alllaman'] = $this->Admin_m->select_all_data('laman');
 				$this->load->view('admin/dashboard-v',$data);
 			}
 		}else{
@@ -120,7 +121,7 @@ class Laman extends CI_Controller {
 			}else{
 				$data['img_laman'] = 'default.jpg';
 			}
-			$this->Laman_m->Insert_laman($data);
+			$this->Admin_m->create('laman',$data);
 			$pesan = 'Laman '.$post['img_laman'].' Berhasil dibuat';
 			$this->session->set_flashdata('message', $pesan );
 			redirect(base_url('index.php/admin/laman'));
@@ -138,12 +139,13 @@ class Laman extends CI_Controller {
 				$this->session->set_flashdata('message', $pesan );
 				redirect(base_url('index.php/admin/dashboard'));
 			}else{
-				$data['title'] = 'Edit - '.$this->Laman_m->detail_laman($alias)->judul_laman;
+				$data['title'] = 'Edit - '.$this->Admin_m->detail_data_order('laman','alias_laman',$alias)->judul_laman;
 				$data['infopt'] = $this->Admin_m->info_pt(1);
 				$data['users'] = $this->ion_auth->user()->row();
+				$data['brand'] = 'asset/img/lembaga/'.$this->Admin_m->info_pt(1)->logo_pt;
 				$data['aside'] = 'nav/nav';
-				$data['detail'] = $this->Laman_m->detail_laman($alias);
-				$data['alllaman'] = $this->Laman_m->all_laman();
+				$data['detail'] = $this->Admin_m->detail_data_order('laman','alias_laman',$alias);
+				$data['alllaman'] = $this->Admin_m->select_all_data('laman');
 				$data['page'] = 'admin/edit-laman-v';
 				$this->load->view('admin/dashboard-v',$data);
 			}
@@ -184,14 +186,14 @@ class Laman extends CI_Controller {
 					redirect(base_url('index.php/admin/laman'));
 				}
 				else{
-					$file = $this->Laman_m->cek_laman($id)->img_laman;
+					$file = $this->Admin_m->detail_data_order('laman','id_laman',$id)->img_laman;
 					if ($file != "default.jpg") {
 						unlink("asset/img/laman/$file");
 					}
 					$data['img_laman'] = $this->upload->data('file_name');
 				}
 			}
-			$this->Laman_m->update_laman($id,$data);
+			$this->Admin_m->update('laman','id_laman',$id,$data);
 			$pesan = 'Laman '.$post['judul_laman'].' Berhasil diedit';
 			$this->session->set_flashdata('message', $pesan );
 			redirect(base_url('index.php/admin/laman'));
@@ -207,11 +209,11 @@ class Laman extends CI_Controller {
     	$this->session->set_flashdata('message', $pesan );
     	redirect(base_url('index.php/admin/login'));
     }else{
-      $file = $this->Laman_m->detail_laman($alias)->img_laman;
+      $file = $this->Admin_m->detail_data_order('laman','alias_laman',$alias)->img_laman;
       if ($file==true) {
       	unlink("asset/img/laman/$file");
       }
-      $this->Laman_m->delete_laman($alias);
+      $this->Admin_m->delete('laman','alias',$alias);
       $this->session->set_flashdata('message', 'Laman berhasil di hapus');
       redirect(base_url('index.php/admin/laman'));
     }

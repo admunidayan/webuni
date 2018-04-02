@@ -7,7 +7,8 @@
 		<a href="<?php echo base_url('index.php/admin/info/') ?>"><li class="linkmenu text-dark"><i class="fa fa-trophy text-info"></i> Info</li></a>
 		<a href="<?php echo base_url('index.php/admin/dokumen/') ?>"><li class="linkmenu text-dark"><i class="fa fa-shopping-basket text-info"></i> Dokumen</li>
 		</a>
-		<a href="<?php echo base_url('index.php/admin/galeri/') ?>"><li class="linkmenu text-dark"><i class="fa fa-trophy text-info"></i> Galeri</li></a>
+		<a href="<?php echo base_url('index.php/admin/galeri/') ?>"><li class="linkmenu text-dark"><i class="fa fa-image text-info"></i> Galeri</li></a>
+		<a href="<?php echo base_url('index.php/admin/slider/') ?>"><li class="linkmenu text-dark"><i class="fa fa-tag text-info"></i> Slider</li></a>
 		<a href="<?php echo base_url('index.php/admin/laman/') ?>"><li class="linkmenu text-dark"><i class="fa fa-users text-info"></i> Laman</li></a>
 		<a href="<?php echo base_url('index.php/admin/kategori/') ?>"><li class="linkmenu text-dark"><i class="fa fa-tags text-info"></i> Kategori</li></a>
 		<a href="<?php echo base_url('index.php/admin/users/') ?>"><li class="linkmenu text-dark"><i class="fa fa-user-o text-info"></i> User</li></a>

@@ -16,7 +16,7 @@
 		<input type="text" name="string" class="form-control" placeholder="Cari laman" style="width: 100%">
 		<small id="nama_kategori" class="form-text text-muted">Tekan enter untuk melakukan pencarian</small>
 	</form>
-	<table class="table" style="vertical-align: middle">
+	<table class="table" style="vertical-align: middle;font-size: 13px">
 		<thead>
 			<tr>
 				<td class="text-center ">No</td>
@@ -40,18 +40,12 @@
 
 						</td>
 						<td class="text-secondary"><?php echo $this->ion_auth->user($data->id_user)->row()->username; ?></td>
-						<td class="text-center">
-							<?php if ($data->status_laman=='publish'): ?>
-								<i class="fa fa-globe"></i>
-							<?php else: ?>
-								<i class="fa fa-exclamation-circle"></i>
-							<?php endif ?>
-						</td>
+						<td class="text-center"><?php echo $data->status_laman; ?></td>
 						<td class="text-center">
 							<a href="<?php echo base_url('index.php/admin/laman/edit/'.$data->alias_laman); ?>">edit</a>
 						</td>
 						<td class="text-center">
-							<a href="<?php echo base_url('index.php/admin/laman/delete/'.$data->alias_laman); ?>">delete</a>
+							<a href="<?php echo base_url('index.php/admin/laman/delete/'.$data->alias_laman); ?>" class="text-danger">delete</a>
 						</td>
 					</tr>
 					<?php $no++ ?>
