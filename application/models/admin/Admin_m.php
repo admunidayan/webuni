@@ -185,6 +185,20 @@ class Admin_m extends CI_Model
 		$query = $this->db->get('info_kampus',$sampai,$dari);
 		return $query->result();
 	}
+	function count_data_video($string){
+		if (!empty($string)) {
+			$this->db->like('judul_video',$string);
+		}
+		return $this->db->get('video')->num_rows();
+	}
+	public function select_all_data_video($sampai,$dari,$string){
+		if (!empty($string)) {
+			$this->db->like('judul_video',$string);
+		}
+		$this->db->order_by('id_video','desc');
+		$query = $this->db->get('video',$sampai,$dari);
+		return $query->result();
+	}
 	function count_data_laman($string){
 		if (!empty($string)) {
 			$this->db->like('judul_laman',$string);
@@ -211,6 +225,20 @@ class Admin_m extends CI_Model
 		}
 		$this->db->order_by('id_galeri','desc');
 		$query = $this->db->get('galeri',$sampai,$dari);
+		return $query->result();
+	}
+	function count_data_link($string){
+		if (!empty($string)) {
+			$this->db->like('nama_link',$string);
+		}
+		return $this->db->get('link')->num_rows();
+	}
+	public function select_all_data_link($sampai,$dari,$string){
+		if (!empty($string)) {
+			$this->db->like('nama_link',$string);
+		}
+		$this->db->order_by('id_link','desc');
+		$query = $this->db->get('link',$sampai,$dari);
 		return $query->result();
 	}
 	function count_data_dokumen($string){

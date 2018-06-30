@@ -15,6 +15,26 @@ body{
 	margin-top: 100px;
 	border-radius: 4px;
 }
+.menav{
+	padding: 7px 0px;
+	background-color: #2f3c43;
+}
+.mainslide{
+	background-color:white; 
+	padding: 28px 0px;
+
+}
+.text-bawaan{
+	color: #267871;
+}
+.box-panel{
+	padding: 7px 14px;
+	margin-top: 14px;
+}
+.cari-box{
+	padding: 30px;
+	margin-top: 28px;
+}
 .bts-ats{
 	margin-top: 14px;
 }
@@ -35,6 +55,12 @@ body{
 	background: -webkit-linear-gradient(left, #0095d6 0%,#00b29d 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to right, #0095d6 0%,#00b29d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0095d6', endColorstr='#00b29d',GradientType=1 ); /* IE6-9 */
+}
+.nbbg2{
+background: #136a8a;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #267871, #136a8a);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 .navstyle{
 	padding: 14px;

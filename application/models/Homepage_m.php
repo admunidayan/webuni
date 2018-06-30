@@ -19,6 +19,17 @@ class Homepage_m extends CI_Model
 		$query = $this->db->get('users');
 		return $query->row();
 	}
+	public function ft_slider(){
+		$this->db->order_by('id_slider','desc');
+		$query = $this->db->get('slider');
+		return $query->row();
+	}
+	public function sc_slider(){
+		$this->db->limit(5,1);
+		$this->db->order_by('id_slider','desc');
+		$query = $this->db->get('slider');
+		return $query->result();
+	}
 	public function subpage($id){
 		$this->db->where('s_laman', $id);
 		$query = $this->db->get('laman');
@@ -106,6 +117,12 @@ class Homepage_m extends CI_Model
 		$query = $this->db->get('artikel');
 		return $query->row();
 	}
+	public function limit_link($jml){
+		$this->db->limit($jml);
+		$this->db->order_by('id_link','desc');
+		$query = $this->db->get('link');
+		return $query->result();
+	}
 	public function all_artikel($sampai,$dari,$cari){
 		if (!empty($cari)) {
 			$this->db->like('judul_artikel',$cari);
@@ -117,6 +134,27 @@ class Homepage_m extends CI_Model
 	public function dokumen_home(){
 		$this->db->order_by('id_dokumen','desc');
 		$query = $this->db->get('dokumen',8,0);
+		return $query->result();
+	}
+	public function result_table_limit($table,$limit){
+		$this->db->limit($limit);
+		$query = $this->db->get($table);
+		return $query->result();
+	}
+	public function row_order($table,$field,$id){
+		$this->db->where($field,$id);
+		$query = $this->db->get($table);
+		return $query->row();
+	}
+	public function result_order($table,$field,$id){
+		$this->db->where($field,$id);
+		$query = $this->db->get($table);
+		return $query->result();
+	}
+	public function result_order_limit($table,$field,$limit,$id){
+		$this->db->where($field,$id);
+		$this->db->limit($limit);
+		$query = $this->db->get($table);
 		return $query->result();
 	}
 	// baru

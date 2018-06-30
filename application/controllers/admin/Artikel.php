@@ -106,7 +106,7 @@ class Artikel extends CI_Controller {
 				if (!empty($_FILES["img_artikel"]["tmp_name"])) {
 					$config['file_name'] = strtolower(url_title('artikel'.'-'.$post['judul_artikel'].'-'.date('Y-m-d').'-'.time('H-i-s')));
 					$config['upload_path'] = './asset/img/artikel/';
-					$config['allowed_types'] = 'gif|jpg|png';
+					$config['allowed_types'] = 'gif|jpg|png|jpeg';
 					$config['max_size'] = 2048;
 					$config['max_width'] = '';
 					$config['max_height'] = '';
@@ -188,7 +188,7 @@ class Artikel extends CI_Controller {
 				if (!empty($_FILES["img_artikel"]["tmp_name"])) {
 					$config['file_name'] = strtolower(url_title('artikel'.'-'.$post['judul_artikel'].'-'.date('Y-m-d').'-'.time('H-i-s')));
 					$config['upload_path'] = './asset/img/artikel/';
-					$config['allowed_types'] = 'gif|jpg|png';
+					$config['allowed_types'] = 'gif|jpg|png|jpeg';
 					$config['max_size'] = 2048;
 					$config['max_width'] = '';
 					$config['max_height'] = '';

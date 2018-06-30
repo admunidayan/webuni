@@ -49,7 +49,7 @@ class Slider extends CI_Controller {
 				if (!empty($_FILES["img_slider"]["tmp_name"])) {
 					$config['file_name'] = strtolower(url_title('slider'.'-'.$post['jdl_slider'].'-'.date('Y-m-d').'-'.time('H-i-s')));
 					$config['upload_path'] = './asset/img/slider/';
-					$config['allowed_types'] = 'gif|jpg|png';
+					$config['allowed_types'] = 'gif|jpg|png|jpeg';
 					$config['max_size'] = 2048;
 					$config['max_width'] = '';
 					$config['max_height'] = '';
@@ -67,7 +67,7 @@ class Slider extends CI_Controller {
 						$file = "asset/img/slider/$img";
     					//output resize (bisa juga di ubah ke format yang berbeda ex: jpg, png dll)
 						$resizedFile = "asset/img/slider/$img";
-						$this->resize->smart_resize_image(null , file_get_contents($file), 1250 , 459 , false , $resizedFile , true , false ,90 );
+						$this->resize->smart_resize_image(null , file_get_contents($file), 1170 , 350 , false , $resizedFile , true , false ,90 );
 					}
 				}else{
 					$data['img_slider'] = 'default.jpg';
@@ -124,7 +124,7 @@ class Slider extends CI_Controller {
 				if (!empty($_FILES["img_slider"]["tmp_name"])) {
 					$config['file_name'] = strtolower(url_title('slider'.'-'.$post['jdl_slider'].'-'.date('Y-m-d').'-'.time('H-i-s')));
 					$config['upload_path'] = './asset/img/slider/';
-					$config['allowed_types'] = 'gif|jpg|png';
+					$config['allowed_types'] = 'gif|jpg|png|jpeg';
 					$config['max_size'] = 2048;
 					$config['max_width'] = '';
 					$config['max_height'] = '';
@@ -146,7 +146,7 @@ class Slider extends CI_Controller {
 						$file = "asset/img/slider/$img";
     					//output resize (bisa juga di ubah ke format yang berbeda ex: jpg, png dll)
 						$resizedFile = "asset/img/slider/$img";
-						$this->resize->smart_resize_image(null , file_get_contents($file), 1250 , 459 , false , $resizedFile , true , false ,90 );
+						$this->resize->smart_resize_image(null , file_get_contents($file), 1170 , 350 , false , $resizedFile , true , false ,90 );
 					}
 				}
 				$this->Admin_m->update('slider','id_slider',$id,$data);
