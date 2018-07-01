@@ -34,7 +34,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<nav class="navbar navbar-expand-lg navbar-dark nbbg2">
