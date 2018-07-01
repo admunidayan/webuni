@@ -19,7 +19,7 @@
 </head>
 <body>
 	<div class="menav">
-		<div class="container text-light">
+		<div class="container-fluid text-light">
 			<div class="row">
 				<div class="col">
 					<div class="row">
@@ -38,7 +38,7 @@
 		</div>
 	</div>
 	<nav class="navbar navbar-expand-lg navbar-dark nbbg2">
-		<div class="container">
+		<div class="container-fluid">
 			<a class="navbar-brand" href="#">
 				<img src="<?php echo base_url($brand); ?>" width="30" height="30" alt="<?php echo $title ?>">
 			</a>
@@ -84,7 +84,7 @@
 	</nav>
 	<?php $this->view($page); ?>
 	<footer class="bg-white cari-box" style="border-top:2px solid #267871">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col">
 					<img src="<?php echo base_url($brand); ?>" width="80px"><?php echo $infopt->nama_info_pt; ?><br/>

@@ -22,7 +22,7 @@
 		</div>
 	</div>
 </div>
-<div class="container">
+<div class="container-fluid">
 	<div class="bg-white cari-box">
 		<h2 class="text-center">Cari Sesuatu disini . . .</h2><hr/>
 		<div class="row">
