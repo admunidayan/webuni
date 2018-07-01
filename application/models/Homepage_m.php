@@ -321,4 +321,47 @@ class Homepage_m extends CI_Model
 		$query = $this->db->get('kabupaten');
 		return $query->row();
 	}
+	function count_data_artikel($string){
+		if (!empty($string)) {
+			$this->db->like('jdl_artikel',$string);
+		}
+		return $this->db->get('artikel')->num_rows();
+	}
+	public function select_all_data_artikel($sampai,$dari,$string){
+		if (!empty($string)) {
+			$this->db->like('jdl_artikel',$string);
+		}
+		$this->db->join('kategori', 'kategori.id_kategori = artikel.id_kategori');
+		$this->db->order_by('id_artikel','desc');
+		$query = $this->db->get('artikel',$sampai,$dari);
+		return $query->result();
+	}
+	function count_data_doc($string){
+		if (!empty($string)) {
+			$this->db->like('nama_dokumen',$string);
+		}
+		return $this->db->get('dokumen')->num_rows();
+	}
+	public function select_all_data_doc($sampai,$dari,$string){
+		if (!empty($string)) {
+			$this->db->like('nama_dokumen',$string);
+		}
+		$this->db->order_by('id_dokumen','desc');
+		$query = $this->db->get('dokumen',$sampai,$dari);
+		return $query->result();
+	}
+	function count_data_galery($string){
+		if (!empty($string)) {
+			$this->db->like('nama_galeri',$string);
+		}
+		return $this->db->get('galeri')->num_rows();
+	}
+	public function select_all_data_galery($sampai,$dari,$string){
+		if (!empty($string)) {
+			$this->db->like('nama_galeri',$string);
+		}
+		$this->db->order_by('id_galeri','desc');
+		$query = $this->db->get('galeri',$sampai,$dari);
+		return $query->result();
+	}
 }
