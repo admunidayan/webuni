@@ -1,5 +1,5 @@
 <div class="mainslide">
-	<div class="container">
+	<div class="">
 		<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
@@ -24,10 +24,21 @@
 </div>
 <div class="container">
 	<div class="bg-white cari-box">
-		<h2 class="text-center">Cari Sesuatu disini . . .</h2>
-		<form>
-			<input type="text" class="form-control form-control-lg" style="margin-bottom: 14px" placeholder="Apa yang anda cari?">
-		</form>
+		<h2 class="text-center">Cari Sesuatu disini . . .</h2><hr/>
+		<div class="row">
+			<div class="col">
+				<a href="<?php echo base_url('index.php/utama/allnews') ?>"><img src="<?php echo base_url('asset/img/news.gif') ?>" width="100%"></a><hr/>
+				<a href="<?php echo base_url('index.php/utama/allnews') ?>" class="text-bawaan text-center"><h4>Berita</h4></a>
+			</div>
+			<div class="col">
+				<a href="<?php echo base_url('index.php/utama/alldoc') ?>"><img src="<?php echo base_url('asset/img/document.gif') ?>" width="100%"></a><hr/>
+				<a href="<?php echo base_url('index.php/utama/alldoc') ?>" class="text-bawaan text-center"><h4>Dokumen</h4></a>
+			</div>
+			<div class="col">
+				<a href="<?php echo base_url('index.php/utama/allgalery') ?>"><img src="<?php echo base_url('asset/img/galeri.gif') ?>" width="100%"></a><hr/>
+				<a href="<?php echo base_url('index.php/utama/allgalery') ?>" class="text-bawaan text-center"><h4>Galeri</h4></a>
+			</div>
+		</div>
 	</div>
 	<div class="bg-white cari-box">
 		<h5>Berita</h5>
